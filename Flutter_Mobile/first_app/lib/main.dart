@@ -28,20 +28,24 @@ class MyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Color Layout',style: TextStyle(color:Colors.white),),
-        centerTitle: false,
-        backgroundColor: const Color.fromARGB(255, 131, 1, 148),
+        title: const Text('First Page'),
+        backgroundColor: Colors.green,
       ),
-      body:Center(child: Stack(
-        alignment: Alignment.center,
-        children: [
-        Container(height: 300,width: 120, decoration: BoxDecoration(color: Colors.black,borderRadius: BorderRadius.circular(20)),),
-        Positioned(top:20, child:Container(height: 80,width: 80,decoration: BoxDecoration(color: Colors.red,shape: BoxShape.circle),),),
-        Container(height: 80,width: 80,decoration: BoxDecoration(color: Colors.yellow,shape: BoxShape.circle),),
-        Positioned(bottom:20, child:Container(height: 80,width: 80,decoration: BoxDecoration(color: Colors.green,shape: BoxShape.circle),),)
-        ],)     ,) 
-        
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [ Row(mainAxisAlignment: MainAxisAlignment.start,children: [
+          Expanded(flex:1 ,child:  Container(height: 100,color: Colors.red,)),
+          Expanded(flex:4 ,child:Container(height: 100,color: Colors.blue,)),
+          Expanded(flex:8 ,child:Container(height: 100,color: Colors.yellow,)),
           
+        ],
+        ),
+        Expanded(flex:1 ,child:  Container(width: 100,color: const Color.fromARGB(255, 121, 93, 102),)),
+             Expanded(flex:1 ,child:  Container(width: 100,color: const Color.fromARGB(255, 3, 206, 47),)),
+        Expanded(flex:1 ,child:  Container(width: 100,color: Colors.pink,))
+        ],
+       
+      ),
     );
   }
 }
